@@ -1,4 +1,11 @@
 //Import Rock.js, Paper.js, Scissors.js, Lizard.js, & Spock.js
+//Create Child Class of Player for 
+class Human {
+    constructor(name){
+        this.name = prompt("Enter your name:");
+        this.hands = []
+    }
+}
 //Populate array of Objects
     //Rock
     //Paper
