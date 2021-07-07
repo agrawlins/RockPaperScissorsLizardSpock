@@ -1,5 +1,6 @@
 const Lizard = require("./Lizard");
 const Paper = require("./Paper");
+const Player2 = require("./Player");
 const Scissors = require("./Scissors");
 const Spock = require("./Spock");
 
@@ -10,7 +11,11 @@ class Rock {
     4 = Spock
 }
 
-function checkRocksOpponent()
+function checkRocksOpponent(){
+    if(Rock.Scissors > 2){
+        //
+    }
+}
 //Kills
     //Scissors
     //Lizard

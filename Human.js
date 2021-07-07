@@ -23,3 +23,5 @@ class Human {
     //return response to Game.js
 //For option 6:
     //restart the game script
+
+module.exports = Human;
