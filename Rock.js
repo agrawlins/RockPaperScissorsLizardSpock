@@ -4,11 +4,13 @@ const Scissors = require("./Scissors");
 const Spock = require("./Spock");
 
 class Rock {
-    4 = Scissors
-    3 = Lizard
-    2 = Paper
-    1 = Spock
+    1 = Scissors
+    2 = Lizard
+    3 = Paper
+    4 = Spock
 }
+
+function checkRocksOpponent()
 //Kills
     //Scissors
     //Lizard

@@ -4,10 +4,10 @@ const Rock = require("./Rock");
 const Spock = require("./Spock");
 
 class Scissors {
-    4 = Paper;
-    3 = Lizard;
-    2 = Rock;
-    1 = Spock;
+    1 = Paper;
+    2 = Lizard;
+    3 = Rock;
+    4 = Spock;
 }
 //Kills
     //Paper
