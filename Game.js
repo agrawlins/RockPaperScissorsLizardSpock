@@ -11,8 +11,9 @@ class Game{
         this.playerOne = new Player(Human);
         this.playerTwo = new Player(AI);
     }
-
-    mainMenu(username){
+}
+    
+function mainMenu(username){
         console.log(`What would you like to do? \n (Enter the number beside your choice) \n
             1) Begin a new game against ${AI.name} \n
             2) Begin a new game against another player (multiplayer) \n
@@ -21,9 +22,9 @@ class Game{
         if(verifyInputIsNumber(mainMenuSelection) = true){
             switch (mainMenuSelection) {
                 case "1":
-                    mainGameStepOne(this.playerOne);
+                    humanSelection(this.playerOne);
                 case "2":
-                    mainGameStepOne(this.playerOne, this.playerTwo)
+                    humanSelection(this.playerOne, this.playerTwo)
                 case "3":
                     exitMenu(username)
             }
@@ -32,7 +33,7 @@ class Game{
         }
     }
 
-    exitMenu(username){
+function exitMenu(username){
         console.log(`Are you REALLY chickening out, ${username}?! \n
             1) Yes, I'm terrified of robots! \n
             2) On second thought, maybe I CAN do this...`);
@@ -51,79 +52,161 @@ class Game{
         }
     }
 
-    mainGameStepOne(username){
+    let playerHumanScore = 0;
+    
+    function giveHumanPoint(playerHumanScore){
+        
+    }
+    
+function giveAIPoint(playerAIScore){
+    let playerAIScore = 0; {
+        if (playerAIScore < 3){
+            let newAIScore = playerAIScore + 1;
+            console.log(`${AI.name} gets one point.`);
+            playerHumanSelection();
+            return newAIScore;
+        }
+        
+    }
+        
+}
+
+  playerHumanSelection();      
+function playerHumanSelection(){
         console.log(`${Game.name}! Which symbol will you choose? \n
         1) Rock \n
         2) Paper \n
         3) Scissors \n
         4) Lizard \n
         5) Spock \n`);
-        let mainGameStepOne = prompt();
-        if(verifyInputIsNumber(mainGameStepOne) = true && (parseInt(mainGameStepOne) > 0 && parseInt(mainGameStepOne) < 6)){
-            switch (mainGameStepOne){
+        let humanSelection = prompt();
+        if(verifyInputIsNumber(humanSelection) = true && (parseInt(humanSelection) > 0 && parseInt(humanSelection) < 6)){
+            switch (humanSelection){
                 case "1":
-                    mainGameStepTwo(username)
+                    mainGameStepTwo(username, humanSelection);
                     return this.handsArray[0];
                 case "2":
-                    mainGameStepTwo(username)
+                    mainGameStepTwo(username, humanSelection);
                     return this.handsArray[1];
                 case "3":
-                    mainGameStepTwo(username);
+                    mainGameStepTwo(username, humanSelection);
                     return this.handsArray[2];
                 case "4":
-                    mainGameStepTwo(username);
+                    mainGameStepTwo(username, humanSelection);
                     return this.handsArray[3];
                 case "5":
-                    mainGameStepTwo(username);
+                    mainGameStepTwo(username, humanSelection);
                     return this.handsArray[4];
             }
-        }else if(verifyInputIsNumber(tutorialStepOne) = false){
+        }else if(verifyInputIsNumber(humanSelection) = false){
             console.log("Please input a number 1-5");
         }
     }
-    mainGameStepTwo(username){
-    }
-
-    optionsPeckingOrder(){
-        let rockVersusRock = this.handsArray[0] && this.handsArray[0];
-        let rockVersusPaper = this.handsArray[0] && this.handsArray[1];
-        let rockVersusScissors = this.handsArray[0] && this.handsArray[2];
-        let rockVersusLizard = this.handsArray[0] && this.handsArray[3];
-        let rockVersusSpock = this.handsArray[0] && this.handsArray[4];
-        let paperVersusRock = this.handsArray[1] && this.handsArray[0];
-        let paperVersusPaper = this.handsArray[1] && this.handsArray[1];
-        let paperVersusScissors = this.handsArray[1] && this.handsArray[2];
-        let paperVersusLizard = this.handsArray[1] && this.handsArray[3];
-        let paperVersusSpock = this.handsArray[1] && this.handsArray[4];
-        let scissorsVersusRock = this.handsArray[2] && this.handsArray[0];
-        let scissorsVersusPaper = this.handsArray[2] && this.handsArray[1];
-        let scissorsVersusScissors = this.handsArray[2] && this.handsArray[2];
-        let scissorsVersusLizard = this.handsArray[2] && this.handsArray[3];
-        let scissorsVersusSpock = this.handsArray[2] && this.handsArray[4];
-        let lizardVersusRock = this.handsArray[3] && this.handsArray[0];
-        let lizardVersusPaper = this.handsArray[3] && this.handsArray[1];
-        let lizardVersusScissors = this.handsArray[3] && this.handsArray[2];
-        let lizardVersusLizard = this.handsArray[3] && this.handsArray[3];
-        let lizardVersusSpock = this.handsArray[3] && this.handsArray[4];
-        let spockVersusRock = this.handsArray[4] && this.handsArray[0];
-        let spockVersusPaper = this.handsArray[4] && this.handsArray[1];
-        let spockVersusScissors = this.handsArray[4] && this.handsArray[2];
-        let spockVersusLizard = this.handsArray[4] && this.handsArray[3];
-        let spockVersusSpock = this.handsArray[4] && this.handsArray[4];
-
-    }
+function playerAISelection(){
+            let aIRandomSelection = Math.floor(Math.random() * 5);
+        if (aIRandomSelection = 0) {
+            console.log(`${AI.name} has chosen ${this.handsArray[0]}`);
+            return aIRandomSelection;
+        } else if (aIRandomSelection = 1) {
+            console.log(`${AI.name} has chosen ${this.handsArray[1]}`);
+            return aIRandomSelection;
+        } else if (aIRandomSelection = 2) {
+            console.log(`${AI.name} has chosen ${this.handsArray[2]}`);
+            return aIRandomSelection;
+        } else if (aIRandomSelection = 3) {
+            console.log(`${AI.name} has chosen ${this.handsArray[3]}`);
+            return aIRandomSelection;
+        } else if (aIRandomSelection = 4){
+            console.log(`${AI.name} has chosen ${this.handsArray[4]}`);
+            return aIRandomSelection;
+        }
+    } 
     
-    verifyInputIsNumber(menuInput){
+    
+    
+    
+
+function compareSelections(playerHumanSelection, playerAISelection){
+    if (this.playerOne.handsArray === aIRandomSelection) {
+        console.log("Well, that's unfortunate... go again");
+        }
+
+	//If the user chose rock...
+	else if (playerHumanSelection === this.handsArray[0]) {
+		if (playerAISelection === this.handsArray[1]) {
+			alert(`${this.handsArray[1]} wins!`);
+		} else if (playerAISelection === this.handsArray[2]) {
+			alert(`${this.handsArray[0]} wins!`);
+		} else if (playerAISelection === this.handsArray[3]) {
+			alert(`${this.handsArray[0]} wins!`);
+		} else if(playerAISelection === this.handsArray[4]){
+			alert(`${this.handsArray[4]} wins!`);
+		}
+	}
+
+	//If the user chose paper...
+	else if (playerHumanSelection === this.handsArray[1]) {
+		if (playerAISelection === this.handsArray[0]) {
+			alert(`${this.handsArray[1]} wins!`);
+		} else if (playerAISelection === this.handsArray[2]) {
+			alert(`${this.handsArray[2]} wins!`);
+		} else if (playerAISelection === this.handsArray[3]) {
+			alert(`${this.handsArray[3]} wins!`);
+		} else {
+			alert(`${this.handsArray[1]} wins!`);
+		}
+	}
+
+	//If the user chose scissors...
+	else if (playerHumanSelection === this.handsArray[2]) {
+		if (playerAISelection === this.handsArray[0]) {
+			alert(`${this.handsArray[0]} wins!`);
+		} else if (playerAISelection === this.handsArray[1]) {
+			alert(`${this.handsArray[2]} wins!`);
+		} else if (playerAISelection === this.handsArray[3]) {
+			alert(`${this.handsArray[2]} wins!`);
+		} else {
+			alert(`${this.handsArray[4]} wins!`);
+		}
+	}
+
+	//If the user chose lizard...
+	else if (playerHumanSelection === this.handsArray[3]) {
+		if (playerAISelection === this.handsArray[0]) {
+			alert(`${this.handsArray[0]} wins!`);
+		} else if (playerAISelection === this.handsArray[1]) {
+			alert(`${this.handsArray[3]} wins!`);
+		} else if (playerAISelection === this.handsArray[2]) {
+			alert(`${this.handsArray[2]} wins!`);
+		} else {
+			alert(`${this.handsArray[3]} wins!`);
+		}
+	}
+
+	//If the user chose spock...
+	else if (playerHumanSelection === this.handsArray[4]) {
+		if (playerAISelection === this.handsArray[0]) {
+			alert(`${this.handsArray[4]} wins!`);
+		} else if (playerAISelection === this.handsArray[1]) {
+			alert(`${this.handsArray[1]} wins!`);
+		} else if (playerAISelection === this.handsArray[2]) {
+			alert(`${this.handsArray[4]} wins!`);
+		} else {
+			alert(`${this.handsArray[3]} wins!`);
+
+		}
+	}
+}
+
+
+function verifyInputIsNumber(menuInput){
         if(/^\d+$/.test(menuInput) = true){
             return true;
         }else{
             return false;
         }
     }
-    
-    
-
-    optionsArray() {
+function optionsArray(){
         let rock = new Options("Rock");
         let paper = new Options("Paper");
         let scissors = new Options("Scissors");
@@ -131,7 +214,4 @@ class Game{
         let spock = new Options("Spock");
         this.handsArray.push(rock, paper, scissors, lizard, spock);
     }
-}
-   
-
-module.exports = Game;
+module.exports = Game
