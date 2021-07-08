@@ -1,27 +1,15 @@
-//Import Rock.js, Paper.js, Scissors.js, Lizard.js, & Spock.js
+const Player = require("./Player");
+
 //Create Child Class of Player for 
-class Human {
-    constructor(name){
-        this.name = prompt("Enter your name:");
-        this.hands = []
+class Human extends Player {
+    constructor(stringMake, stringModel) {
+        this.options
+        this.model = stringModel;
+    }
+
+    hands() {
+        console.log(`The ${this.make} ${this.model}'s engine has started. Moving forward.`);
     }
 }
-//Populate array of Objects
-    //Rock
-    //Paper
-    //Scissors
-    //Lizard
-    //Spock
-//Prompt for selection of options 1-6:
-    // 1) Rock
-    // 2) Paper
-    // 3) Scissors
-    // 4) Lizard
-    // 5) Spock
-    // 6) Exit
-//For options 1-5:
-    //return response to Game.js
-//For option 6:
-    //restart the game script
 
 module.exports = Human;

@@ -1,24 +1,16 @@
+const Game = require("./Game");
+const Player = require("./Player");
+
 //Import Rock.js, Paper.js, Scissors.js, Lizard.js, & Spock.js
-class AI {
+class AI extends Player {
     constructor(){
         this.name = "Computer";
-        this.hands = []
-        this.options = []
+        this.aISelection = this.aISelection();
+    }
+    aISelection(){
+        let selection = Math.floor(Math.random() * 5);
+        return selection;
     }
 }
 
-class aIRandomSelection {
-    constructor(){
-        this.options = []
-    }
-}
-//Populate array of Objects
-    //Let aIOptions = [
-    //Rock,
-    //Paper,
-    //Scissors,
-    //Lizard,
-    //Spock]
-//Randomly select array index
-    //let aIRandomSelection = Math.Floor(Math.Random()*array)
 module.exports = AI;
