@@ -1,37 +1,30 @@
 const AI = require("./AI");
 const Human = require("./Human");
 const Options = require("./Options");
+const Player = require("./Player");
 
 //Import Player.js
 class Game{
     constructor(){
         this.name = "Rock, Paper, Scissors, Lizard, Spock";
         this.handsArray = [];
-        this.score = score;
-    }
-
-    usernameSelection(){
-        console.log(`Please enter your name:`);
-        let username = prompt();
-        if(verifyUsernameIsName(username) = true){
-            console.log(`Welcome, ${username}, to ${Game.name}!`)
-            mainMenu(username);
-        }else if(verifyUsernameIsName(username) = false){
-            console.log(`Whoa there! I may not be a smart program, but I know that ${username} ain't yer name: names ONLY HAVE LETTERS!!`);
-            usernameSelection();
-        }
+        this.playerOne = new Player(Human);
+        this.playerTwo = new Player(AI);
     }
 
     mainMenu(username){
         console.log(`What would you like to do? \n (Enter the number beside your choice) \n
             1) Begin a new game against ${AI.name} \n
-            2) Exit`);
+            2) Begin a new game against another player (multiplayer) \n
+            3) Exit`);
         let mainMenuSelection = prompt();
         if(verifyInputIsNumber(mainMenuSelection) = true){
             switch (mainMenuSelection) {
                 case "1":
                     mainGameStepOne(username);
                 case "2":
+
+                case "3":
                     exitMenu(username)
             }
         }else if(verifyInputIsNumber(mainMenuSelection) = false){
@@ -100,13 +93,7 @@ class Game{
         }
     }
     
-    verifyUsernameIsName(username){
-        if(/^[a-z]+$/i.test(username) = true){
-            return true;
-        }else{
-            return false;
-        }
-    }
+    
 
     optionsArray() {
         let rock = new Options("Rock");
