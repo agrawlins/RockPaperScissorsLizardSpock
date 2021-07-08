@@ -21,9 +21,9 @@ class Game{
         if(verifyInputIsNumber(mainMenuSelection) = true){
             switch (mainMenuSelection) {
                 case "1":
-                    mainGameStepOne(username);
+                    mainGameStepOne(this.playerOne);
                 case "2":
-
+                    mainGameStepOne(this.playerOne, this.playerTwo)
                 case "3":
                     exitMenu(username)
             }
@@ -62,27 +62,55 @@ class Game{
         if(verifyInputIsNumber(mainGameStepOne) = true && (parseInt(mainGameStepOne) > 0 && parseInt(mainGameStepOne) < 6)){
             switch (mainGameStepOne){
                 case "1":
-                    mainGameStepTwo(username, mainGameStepOne);
-                    return parseInt(mainGameStepOne);
+                    mainGameStepTwo(username)
+                    return this.handsArray[0];
                 case "2":
-                    mainGameStepTwo(username, mainGameStepOne);
-                    return parseInt(mainGameStepOne);
+                    mainGameStepTwo(username)
+                    return this.handsArray[1];
                 case "3":
-                    mainGameStepTwo(username, mainGameStepOne);
-                    return parseInt(mainGameStepOne);
+                    mainGameStepTwo(username);
+                    return this.handsArray[2];
                 case "4":
-                    mainGameStepTwo(username, mainGameStepOne);
-                    return parseInt(mainGameStepOne);
+                    mainGameStepTwo(username);
+                    return this.handsArray[3];
                 case "5":
-                    mainGameStepTwo(username, mainGameStepOne);
-                    return parseInt(mainGameStepOne);
+                    mainGameStepTwo(username);
+                    return this.handsArray[4];
             }
         }else if(verifyInputIsNumber(tutorialStepOne) = false){
             console.log("Please input a number 1-5");
         }
     }
-    mainGameStepTwo(username, mainGameStepOne){
-        aISelection()
+    mainGameStepTwo(username){
+    }
+
+    optionsPeckingOrder(){
+        let rockVersusRock = this.handsArray[0] && this.handsArray[0];
+        let rockVersusPaper = this.handsArray[0] && this.handsArray[1];
+        let rockVersusScissors = this.handsArray[0] && this.handsArray[2];
+        let rockVersusLizard = this.handsArray[0] && this.handsArray[3];
+        let rockVersusSpock = this.handsArray[0] && this.handsArray[4];
+        let paperVersusRock = this.handsArray[1] && this.handsArray[0];
+        let paperVersusPaper = this.handsArray[1] && this.handsArray[1];
+        let paperVersusScissors = this.handsArray[1] && this.handsArray[2];
+        let paperVersusLizard = this.handsArray[1] && this.handsArray[3];
+        let paperVersusSpock = this.handsArray[1] && this.handsArray[4];
+        let scissorsVersusRock = this.handsArray[2] && this.handsArray[0];
+        let scissorsVersusPaper = this.handsArray[2] && this.handsArray[1];
+        let scissorsVersusScissors = this.handsArray[2] && this.handsArray[2];
+        let scissorsVersusLizard = this.handsArray[2] && this.handsArray[3];
+        let scissorsVersusSpock = this.handsArray[2] && this.handsArray[4];
+        let lizardVersusRock = this.handsArray[3] && this.handsArray[0];
+        let lizardVersusPaper = this.handsArray[3] && this.handsArray[1];
+        let lizardVersusScissors = this.handsArray[3] && this.handsArray[2];
+        let lizardVersusLizard = this.handsArray[3] && this.handsArray[3];
+        let lizardVersusSpock = this.handsArray[3] && this.handsArray[4];
+        let spockVersusRock = this.handsArray[4] && this.handsArray[0];
+        let spockVersusPaper = this.handsArray[4] && this.handsArray[1];
+        let spockVersusScissors = this.handsArray[4] && this.handsArray[2];
+        let spockVersusLizard = this.handsArray[4] && this.handsArray[3];
+        let spockVersusSpock = this.handsArray[4] && this.handsArray[4];
+
     }
     
     verifyInputIsNumber(menuInput){
