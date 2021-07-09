@@ -7,33 +7,29 @@ class Game{
     constructor(){
         this.name = "Rock, Paper, Scissors, Lizard, Spock";
         this.handsArray = [];
-        this.type = selectPlayerType;
-        this.playerOne = new Player(Human);
-        this.playerTwo = new Player(AI);
     }
-}
-    
-function mainMenu(username){
-        console.log(`What would you like to do? \n (Enter the number beside your choice) \n
-            1) Begin a new game against ${AI.name} \n
-            2) Begin a new game against another player (multiplayer) \n
-            3) Exit`);
+    mainMenu(){
+        console.log(`What would you like to do? (Enter the number beside your choice)`);
+        console.log (`1) Begin a new game against ${AI.name}`)
+        console.log ("2) Begin a new game against another player (multiplayer)")
+        console.log ("3) Exit");
         let mainMenuSelection = prompt();
-        if(verifyInputIsNumber(mainMenuSelection) = true){
-            switch (mainMenuSelection) {
+            switch (mainMenuSelection){
                 case "1":
-                    humanSelection(this.playerOne);
+                    this.playerOne = new Human;
+                    this.playerTwo = new AI;
+                    singlePlayerMode();
+                    break;
                 case "2":
-                    humanSelection(this.playerOne, this.playerTwo)
+                    this.playerOne = new Human;
+                    this.playerTwo = new Human
+                    break;
                 case "3":
-                    exitMenu(username)
+                    exitMenu();
             }
-        }else if(verifyInputIsNumber(mainMenuSelection) = false){
-            console.log("Try entering JUST A NUMBER this time...")
-        }
     }
-
-function exitMenu(username){
+    
+    exitMenu(username){
         console.log(`Are you REALLY chickening out, ${username}?! \n
             1) Yes, I'm terrified of robots! \n
             2) On second thought, maybe I CAN do this...`);
@@ -51,6 +47,8 @@ function exitMenu(username){
             console.log("Try entering JUST A NUMBER this time...")
         }
     }
+}
+    
 
     
 //     function giveHumanPoint(playerHumanScore){
@@ -70,32 +68,7 @@ function exitMenu(username){
         
 // }
 
-  playerHumanSelection();      
-function playerHumanSelection(){
-        console.log(`${Game.name}! Which symbol will you choose? \n
-        1) Rock \n
-        2) Paper \n
-        3) Scissors \n
-        4) Lizard \n
-        5) Spock \n`);
-        let humanSelection = prompt();
-        if(verifyInputIsNumber(humanSelection) = true && (parseInt(humanSelection) > 0 && parseInt(humanSelection) < 6)){
-            switch (humanSelection){
-                case "1":
-                    return this.handsArray[0];
-                case "2":
-                    return this.handsArray[1];
-                case "3":
-                    return this.handsArray[2];
-                case "4":
-                    return this.handsArray[3];
-                case "5":
-                    return this.handsArray[4];
-            }
-        }else if(verifyInputIsNumber(humanSelection) = false){
-            console.log("Please input a number 1-5");
-        }
-    }
+ 
 
     
     

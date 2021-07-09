@@ -1,12 +1,37 @@
 const Player = require("./Player");
-
+const prompt = require("prompt-sync")();
 //Create Child Class of Player for 
 class Human extends Player {
-    constructor(stringMake, stringModel) {
+    constructor() {
         super();
         this.username = prompt("Please Enter your name:")
     }
-}
+    HumanSelection(){
+        console.log(`Which gesture do you choose? \n
+            1) Rock \n
+            2) Paper \n
+            3) Scissors \n
+            4) Lizard \n
+            5) Spock \n`);
+            let humanSelection = prompt();
+            if(verifyInputIsNumber(humanSelection) = true && (parseInt(humanSelection) > 0 && parseInt(humanSelection) < 6)){
+                switch (humanSelection){
+                    case "1":
+                        this.choice = this.hands[0];
+                    case "2":
+                        this.choice = this.hands[1];
+                    case "3":
+                        this.choice = this.hands[2];
+                    case "4":
+                        this.choice = this.hands[3];
+                    case "5":
+                        this.choice = this.hands[4];
+                }
+            }else if(this.verifyInputIsNumber(humanSelection) = false){
+                console.log("Please input a number 1-5");
+            }
+        }
+    }
     // usernameSelection(){
     //     console.log(`Please enter your name:`);
     //     let username = prompt();
