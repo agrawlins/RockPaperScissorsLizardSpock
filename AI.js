@@ -4,7 +4,7 @@ const Player = require("./Player");
 class AI extends Player {
     constructor(){
         super();
-        this.name = "Computer";
+        this.username = "Computer";
     }
     aISelection(){
         this.choice = this.hands[Math.floor(Math.random() * this.hands.length)];
