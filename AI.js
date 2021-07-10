@@ -1,14 +1,12 @@
 const Player = require("./Player");
 
-//Import Rock.js, Paper.js, Scissors.js, Lizard.js, & Spock.js
 class AI extends Player {
     constructor(){
         super();
         this.username = "Computer";
     }
-    aISelection(){
+    selection(){
         this.choice = this.hands[Math.floor(Math.random() * this.hands.length)];
     }
 }
-
 module.exports = AI;

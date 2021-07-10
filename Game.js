@@ -9,10 +9,7 @@ class Game{
         this.handsArray = [];
     }
     mainMenu(){
-        console.log("What would you like to do? (Enter the number beside your choice)");
-        console.log ("1) Begin a new game against the computer?  (Singleplayer)")
-        console.log ("2) Begin a new game against another player (Multiplayer)")
-        console.log ("3) Exit");
+        console.log(`Welcome to ${this.name}! What would you like to do? (Enter the number beside your choice) \n 1) Begin a new game against the computer  (Singleplayer) \n 2) Begin a new game against another player (Multiplayer) \n 3) Exit`);
         let mainMenuSelection = prompt();
             switch (mainMenuSelection){
                 case "1":
@@ -32,126 +29,123 @@ class Game{
     
 }
 function exitMenu(){
-    console.log("Are you REALLY chickening out,?!");
-    console.log("1) Yes, I just remembered; I'm allergic to winning!");
-    console.log("2) On second thought, maybe I CAN do this...");
+    console.log("Are you REALLY chickening out,?! \n 1) Yes. I just remembered; I'm allergic to winning! \n 2) On second thought, maybe I CAN do this...");
     let exitMenuSelection = prompt();
         switch (exitMenuSelection) {
             case "1":
                 console.log("I know what you're made of now: it's called 'Afraidium'. It's yellow, and tastes like chicken... BUH-GAWK!!!");
                 break;
             case "2":
-                console.log("Now, THAT'S more like it!")
-                Game.mainMenu();
+                console.log("Now, THAT'S more like it!");
+                this.mainMenu();
         }
 }
     
 function mainGame(playerOne, playerTwo){
-    
+    for (let i = 0; i < 3; i++) {
+        playerOne.selection();
+        playerTwo.selection();
+        console.log(`${playerOne.username} chose ${playerOne.choice}!`);
+        console.log(`${playerTwo.username} chose ${playerTwo.choice}!`);
+        
+        if(playerOne.choice === playerTwo.choice){
+            i--;
+            console.log("Well, crap, it's a tie... Go again!");
+        }else if(playerOne.choice === playerOne.hands[0]){
+            if(playerTwo.choice === playerTwo.hands[1]){
+                console.log(`${playerTwo.hands[1]} covers ${playerOne.hands[0]}: ${playerTwo.username} wins round ${i+1}!`);
+                playerTwo.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[2]){
+                console.log(`${playerOne.hands[0]} smashes ${playerTwo.hands[2]}: ${playerOne.username} wins round ${i+1}!`);
+                playerOne.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[3]){
+                console.log(`${playerOne.hands[0]} smashes ${playerTwo.hands[3]}: ${playerOne.username} wins round ${i+1}!`);
+                playerOne.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[4]){
+                console.log(`${playerTwo.hands[4]} vaporizes ${playerOne.hands[0]}: ${playerTwo.username} wins round ${i+1}!`);
+                playerTwo.score ++;
+            }
+        }else if(playerOne.choice === playerOne.hands[1]){
+            if(playerTwo.choice === playerTwo.hands[0]){
+                console.log(`${playerOne.hands[1]} covers ${playerTwo.hands[0]}: ${playerOne.username} wins round ${i+1}!`);
+                playerOne.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[2]){
+                console.log(`${playerTwo.hands[2]} cuts ${playerOne.hands[1]}: ${playerTwo.username} wins round ${i+1}!`);
+                playerTwo.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[3]){
+                console.log(`${playerTwo.hands[3]} eats ${playerOne.hands[1]}: ${playerTwo.username} wins round ${i+1}!`);
+                playerTwo.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[4]){
+                console.log(`${playerOne.hands[1]} disproves ${playerTwo.hands[4]}: ${playerOne.username} wins round ${i+1}!`);
+                playerOne.score ++;
+            }
+        }else if(playerOne.choice === playerOne.hands[2]){
+            if(playerTwo.choice === playerTwo.hands[0]){
+                console.log(`${playerTwo.hands[0]} smashes ${playerOne.hands[2]}: ${playerTwo.username} wins round ${i+1}!`);
+                playerTwo.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[1]){
+                console.log(`${playerOne.hands[2]} cuts ${playerTwo.hands[1]}: ${playerOne.username} wins round ${i+1}!`);
+                playerOne.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[3]){
+                console.log(`${playerOne.hands[2]} decapitates ${playerTwo.hands[3]}: ${playerOne.username} wins round ${i+1}!`);
+                playerOne.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[4]){
+                console.log(`${playerTwo.hands[4]} vaporizes ${playerOne.hands[2]}: ${playerTwo.username} wins round ${i+1}!`);
+                playerTwo.score ++;
+            }
+        }else if(playerOne.choice === playerOne.hands[3]){
+            if(playerTwo.choice === playerTwo.hands[0]){
+                console.log(`${playerTwo.hands[0]} crushes ${playerOne.hands[3]}: ${playerTwo.username} wins round ${i+1}!`);
+                playerTwo.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[1]){
+                console.log(`${playerOne.hands[3]} eats ${playerTwo.hands[1]}: ${playerOne.username} wins round ${i+1}!`);
+                playerOne.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[2]){
+                console.log(`${playerTwo.hands[2]} decapitates ${playerOne.hands[3]}: ${playerTwo.username} wins round ${i+1}!`);
+                playerTwo.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[4]){
+                console.log(`${playerOne.hands[3]} poisons ${playerTwo.hands[4]}: ${playerOne.username} wins round ${i+1}!`);
+                playerOne.score ++;
+            }
+        }else if(playerOne.choice === playerOne.hands[4]){
+            if(playerTwo.choice === playerTwo.hands[0]){
+                console.log(`${playerOne.hands[4]} vaporizes ${playerTwo.hands[0]}: ${playerOne.username} wins round ${i+1}!`);
+                playerOne.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[1]){
+                console.log(`${playerTwo.hands[1]} disproves ${playerOne.hands[4]}: ${playerTwo.username} wins round ${i+1}!`);
+                playerTwo.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[2]){
+                console.log(`${playerOne.hands[4]} vaporizes ${playerTwo.hands[2]}: ${playerOne.username} wins round ${i+1}!`);
+                playerOne.score ++;
+            }else if(playerTwo.choice === playerTwo.hands[3]){
+                console.log(`${playerTwo.hands[3]} poisons ${playerOne.hands[4]}: ${playerTwo.username} wins round ${i+1}!`);
+                playerTwo.score ++;
+            }
+        }
+    } endGame(playerOne, playerTwo);
 }
-    
-//     function giveHumanPoint(playerHumanScore){
-//         let playerHumanScore = 0;
-//     }
-    
-// function giveAIPoint(playerAIScore){
-//     let playerAIScore = 0; {
-//         if (playerAIScore < 3){
-//             let newAIScore = playerAIScore + 1;
-//             console.log(`${AI.name} gets one point.`);
-//             playerHumanSelection();
-//             return newAIScore;
-//         }
-        
-//     }
-        
-// }
 
- 
+function endGame(playerOne, playerTwo){
+    console.log(`${playerOne.username}'s score: ${playerOne.score}`);
+    console.log(`${playerTwo.username}'s score: ${playerTwo.score}`);
+    if(playerOne.score > playerTwo.score){
+        console.log(`${playerOne.username} wins!`);
+        requestRematch();
+    }else if(playerOne.score < playerTwo.score){
+        console.log(`${playerTwo.username} wins!`);
+        requestRematch();
+    }
+}
 
-    
-    
-    
-    
+function requestRematch(){
+    console.log("Play again? \n 1) Yes \n 2) No");
+    let requestRematchSelection = prompt();
+    switch (requestRematchSelection) {
+        case "1":
+            mainGame(this.playerOne, this.playerTwo);
+            break;
+        case "2":
+    }
+}
 
-// function compareSelections(playerHumanSelection, playerAISelection){
-//     if (this.playerOne.handsArray === aIRandomSelection) {
-//         console.log("Well, that's unfortunate... go again");
-//         }
-
-// 	//If the user chose rock...
-// 	else if (playerHumanSelection === this.handsArray[0]) {
-// 		if (playerAISelection === this.handsArray[1]) {
-// 			alert(`${this.handsArray[1]} wins!`);
-// 		} else if (playerAISelection === this.handsArray[2]) {
-// 			alert(`${this.handsArray[0]} wins!`);
-// 		} else if (playerAISelection === this.handsArray[3]) {
-// 			alert(`${this.handsArray[0]} wins!`);
-// 		} else if(playerAISelection === this.handsArray[4]){
-// 			alert(`${this.handsArray[4]} wins!`);
-// 		}
-// 	}
-
-// 	//If the user chose paper...
-// 	else if (playerHumanSelection === this.handsArray[1]) {
-// 		if (playerAISelection === this.handsArray[0]) {
-// 			alert(`${this.handsArray[1]} wins!`);
-// 		} else if (playerAISelection === this.handsArray[2]) {
-// 			alert(`${this.handsArray[2]} wins!`);
-// 		} else if (playerAISelection === this.handsArray[3]) {
-// 			alert(`${this.handsArray[3]} wins!`);
-// 		} else {
-// 			alert(`${this.handsArray[1]} wins!`);
-// 		}
-// 	}
-
-// 	//If the user chose scissors...
-// 	else if (playerHumanSelection === this.handsArray[2]) {
-// 		if (playerAISelection === this.handsArray[0]) {
-// 			alert(`${this.handsArray[0]} wins!`);
-// 		} else if (playerAISelection === this.handsArray[1]) {
-// 			alert(`${this.handsArray[2]} wins!`);
-// 		} else if (playerAISelection === this.handsArray[3]) {
-// 			alert(`${this.handsArray[2]} wins!`);
-// 		} else {
-// 			alert(`${this.handsArray[4]} wins!`);
-// 		}
-// 	}
-
-// 	//If the user chose lizard...
-// 	else if (playerHumanSelection === this.handsArray[3]) {
-// 		if (playerAISelection === this.handsArray[0]) {
-// 			alert(`${this.handsArray[0]} wins!`);
-// 		} else if (playerAISelection === this.handsArray[1]) {
-// 			alert(`${this.handsArray[3]} wins!`);
-// 		} else if (playerAISelection === this.handsArray[2]) {
-// 			alert(`${this.handsArray[2]} wins!`);
-// 		} else {
-// 			alert(`${this.handsArray[3]} wins!`);
-// 		}
-// 	}
-
-// 	//If the user chose spock...
-// 	else if (playerHumanSelection === this.handsArray[4]) {
-// 		if (playerAISelection === this.handsArray[0]) {
-// 			alert(`${this.handsArray[4]} wins!`);
-// 		} else if (playerAISelection === this.handsArray[1]) {
-// 			alert(`${this.handsArray[1]} wins!`);
-// 		} else if (playerAISelection === this.handsArray[2]) {
-// 			alert(`${this.handsArray[4]} wins!`);
-// 		} else {
-// 			alert(`${this.handsArray[3]} wins!`);
-
-// 		}
-// 	}
-// }
-
-
-// function verifyInputIsNumber(menuInput){
-//         if(parseInt(menuInput) > 0 && parseInt(menuInput) < 5){
-//             return true;
-//         }else{
-//             return false;
-//         }
-//     }
-module.exports = Game
+module.exports = Game;
