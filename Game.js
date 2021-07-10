@@ -24,9 +24,12 @@ class Game{
                     break;
                 case "3":
                     exitMenu();
+                    break;
+                default:
+                    console.log("That's not a choice! Please enter '1', '2', or '3'!");
+                    this.mainMenu();
             }
     }
-    
 }
 function exitMenu(){
     console.log("Are you REALLY chickening out,?! \n 1) Yes. I just remembered; I'm allergic to winning! \n 2) On second thought, maybe I CAN do this...");
@@ -38,9 +41,12 @@ function exitMenu(){
             case "2":
                 console.log("Now, THAT'S more like it!");
                 this.mainMenu();
+                break;
+            default:
+                console.log("That's not a choice! Please enter '1' or '2'!");
+                exitMenu();
         }
 }
-    
 function mainGame(playerOne, playerTwo){
     for (let i = 0; i < 3; i++) {
         playerOne.selection();
@@ -124,7 +130,6 @@ function mainGame(playerOne, playerTwo){
         }
     } endGame(playerOne, playerTwo);
 }
-
 function endGame(playerOne, playerTwo){
     console.log(`${playerOne.username}'s score: ${playerOne.score}`);
     console.log(`${playerTwo.username}'s score: ${playerTwo.score}`);
@@ -136,7 +141,6 @@ function endGame(playerOne, playerTwo){
         requestRematch();
     }
 }
-
 function requestRematch(){
     console.log("Play again? \n 1) Yes \n 2) No");
     let requestRematchSelection = prompt();
@@ -145,7 +149,10 @@ function requestRematch(){
             mainGame(this.playerOne, this.playerTwo);
             break;
         case "2":
+            console.log(`Thanks for playing ${this.name}!`)
+        default:
+            console.log("That's not a choice! Please enter '1'or '2'!");
+            requestRematch();
     }
 }
-
 module.exports = Game;
