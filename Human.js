@@ -4,7 +4,7 @@ const prompt = require("prompt-sync")();
 class Human extends Player {
     constructor() {
         super();
-        this.username = prompt("Please Enter your name:")
+        this.username = prompt("Please Enter your name:");
     }
     selection(){
         console.log(`Which gesture do you choose, ${this.username}? \n 1) ${this.hands[0]} \n 2) ${this.hands[1]} \n 3) ${this.hands[2]} \n 4) ${this.hands[3]} \n 5) ${this.hands[4]} \n`);
@@ -24,6 +24,9 @@ class Human extends Player {
                     break;
                 case "5":
                     this.choice = this.hands[4];
+                    break;
+                default:
+                    console.log("Try selecting 1-5 this time!");
             }
         }
     }

@@ -7,6 +7,5 @@ class Player {
         this.choice;
         this.hands = ["Rock", "Paper", "Scissors", "Lizard", "Spock"];
     }
-    
 }
 module.exports = Player;

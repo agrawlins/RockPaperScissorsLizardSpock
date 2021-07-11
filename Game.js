@@ -15,7 +15,7 @@ class Game{
                 case "1":
                     this.playerOne = new Human;
                     this.playerTwo = new AI;
-                    mainGame(this.playerOne, this.playerTwo);
+                    mainGame(this.playerOne, this.playerTwo);d
                     break;
                 case "2":
                     this.playerOne = new Human;
